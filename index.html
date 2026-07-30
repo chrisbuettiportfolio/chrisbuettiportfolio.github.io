@@ -50,14 +50,14 @@
   .sec-h2 { font-family: Spectral, Georgia, serif; font-weight: 400; font-size: 38px; letter-spacing: -0.015em; margin: 0; }
 
   /* hero */
-  .hero { padding: 92px 0; }
-  .hero .split { align-items: center; }
+  .hero { padding: 88px 0; }
+  .hero .split { align-items: center; grid-template-columns: 0.9fr 1.1fr; gap: 56px; }
   .portrait {
-    width: 260px; height: 260px;
+    width: 100%; max-width: 360px; aspect-ratio: 1 / 1; height: auto;
     border-radius: 14px;
     object-fit: cover;
     display: block;
-    margin-bottom: 28px;
+    margin-bottom: 26px;
     border: 1px solid #e5e0d5;
     filter: saturate(0.95);
   }
