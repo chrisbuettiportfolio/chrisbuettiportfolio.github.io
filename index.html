@@ -114,6 +114,9 @@
   .pressrow .title { display: block; font-family: Spectral, Georgia, serif; font-size: 24px; line-height: 1.28; letter-spacing: -0.01em; margin-bottom: 8px; color: #1a1815; }
   .pressrow:hover .title { color: var(--accent); }
   .pressrow .desc { display: block; font-size: 15px; line-height: 1.6; color: #6f6a60; max-width: 62ch; }
+  .press-group-label { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #8f887c; margin: 40px 0 4px; }
+  .press-list + .press-group-label { margin-top: 56px; }
+  .press-list:first-of-type { margin-top: 0; }
 
   /* footer */
   footer.site { max-width: 1080px; margin: 0 auto; padding: 72px 40px 56px; }
@@ -237,58 +240,93 @@
         <div class="eyebrow">In the news</div>
         <h2 class="sec-h2">Media &amp; Press</h2>
       </div>
-      <p>In 2019 I built a fully autonomous Instagram bot in Python that fed me free dinners across NYC. The write up became the most read post on Medium that year and got picked up everywhere. Selected coverage below.</p>
+      <p>Coverage of Lionize, its funding and acquisition, and the autonomous Instagram bot Chris built in 2019 that became the most read post on Medium that year.</p>
     </div>
   </div>
 
+  <div class="press-group-label">Lionize</div>
   <div class="press-list">
-    <a href="https://medium.com/hackernoon/how-i-eat-for-free-in-nyc-using-python-automation-artificial-intelligence-and-instagram-a5ed8a9d2b57" target="_blank" rel="noopener">
+    <a href="https://www.einpresswire.com/article/821977725/gen-video-acquires-lionize-unites-creator-discovery-with-commerce-all-in-one-ai-powered-influencer-marketing-platform" target="_blank" rel="noopener">
       <div class="pressrow">
         <span class="num">01</span>
-        <span class="outlet">Medium <span class="yr">2019</span></span>
+        <span class="outlet">EIN Presswire <span class="yr">2025</span></span>
         <span>
-          <span class="title">How I Eat For Free in NYC Using Python, Automation, Artificial Intelligence, and Instagram</span>
-          <span class="desc">The original essay. Computer vision content selection, engagement automation, and scheduling, grown to tens of thousands of followers with zero manual input.</span>
+          <span class="title">gen.video Acquires Lionize, Uniting Creator Discovery With Commerce</span>
+          <span class="desc">The acquisition that brought Lionize together with gen.video into a single AI powered influencer marketing platform, later rebranded partnrUP.</span>
         </span>
       </div>
     </a>
-    <a href="https://www.cnbc.com/2019/03/29/this-nyu-grad-uses-a-bot-to-get-free-meals-and-drinks-around-nyc.html" target="_blank" rel="noopener">
+    <a href="https://theygotacquired.com/saas/lionize-acquired-by-gen-video/" target="_blank" rel="noopener">
       <div class="pressrow">
         <span class="num">02</span>
-        <span class="outlet">CNBC <span class="yr">2019</span></span>
+        <span class="outlet">They Got Acquired <span class="yr">2025</span></span>
         <span>
-          <span class="title">This grad built a bot to score free meals and drinks around New York City</span>
-          <span class="desc">CNBC broke down how the automation worked and what it meant for the future of influencer marketing.</span>
+          <span class="title">Influencer marketing SaaS Lionize acquired by gen.video</span>
+          <span class="desc">A look at the deal and what the founding team built before the exit.</span>
         </span>
       </div>
     </a>
-    <a href="https://www.buzzfeednews.com/article/franceperkins/instagram-influencer-bot" target="_blank" rel="noopener">
+    <a href="https://cultivationcapital.com/cultivation-leads-3m-seed-round-in-lionize/" target="_blank" rel="noopener">
       <div class="pressrow">
         <span class="num">03</span>
-        <span class="outlet">BuzzFeed News <span class="yr">2019</span></span>
+        <span class="outlet">Cultivation Capital <span class="yr">2022</span></span>
         <span>
-          <span class="title">A Guy Automated His Instagram To Eat For Free All Over New York</span>
-          <span class="desc">Front page feature on the bot, the ethics debate it kicked off, and how brands reacted.</span>
+          <span class="title">Lionize Raises $3 Million Seed Round</span>
+          <span class="desc">Seed financing led by Cultivation Capital with ScOp Venture Capital to grow the AI powered campaign platform.</span>
         </span>
       </div>
     </a>
-    <a href="https://www.npr.org/podcasts/510325/note-to-self" target="_blank" rel="noopener">
+    <a href="https://www.prnewswire.com/news-releases/lionize-announces-initial-closing-of-2-million-funding-round-led-by-cultivation-capital-to-fuel-continued-growth-in-the-influencer-marketing-sector-302073520.html" target="_blank" rel="noopener">
       <div class="pressrow">
         <span class="num">04</span>
-        <span class="outlet">NPR Podcast <span class="yr">2019</span></span>
+        <span class="outlet">PR Newswire <span class="yr">2024</span></span>
         <span>
-          <span class="title">The engineer who taught a bot to work the influencer economy</span>
-          <span class="desc">A long form podcast conversation about automation, incentives, and where social platforms are headed.</span>
+          <span class="title">Lionize Announces Initial Closing of $2 Million Funding Round</span>
+          <span class="desc">Follow on round led by Cultivation Capital to fuel continued growth in influencer marketing.</span>
         </span>
       </div>
     </a>
-    <a href="https://www.cheddar.com/" target="_blank" rel="noopener">
+  </div>
+
+  <div class="press-group-label">The Instagram bot</div>
+  <div class="press-list">
+    <a href="https://www.buzzfeednews.com/article/katienotopoulos/automated-instagram-influencer-bot-free-meals" target="_blank" rel="noopener">
       <div class="pressrow">
         <span class="num">05</span>
-        <span class="outlet">Cheddar TV <span class="yr">2019</span></span>
+        <span class="outlet">BuzzFeed News <span class="yr">2019</span></span>
         <span>
-          <span class="title">Live on Cheddar: automating the influencer game</span>
-          <span class="desc">A live television interview walking through the project and the reaction it drew from the marketing world.</span>
+          <span class="title">Being An Instagram Influencer Is Hard Work, So This Guy Automated It</span>
+          <span class="desc">Front page feature on the fully automated account, the ethics debate it kicked off, and how brands reacted.</span>
+        </span>
+      </div>
+    </a>
+    <a href="https://ny.eater.com/2019/3/20/18274466/nyc-restaurants-influencer-robot-free-food" target="_blank" rel="noopener">
+      <div class="pressrow">
+        <span class="num">06</span>
+        <span class="outlet">Eater <span class="yr">2019</span></span>
+        <span>
+          <span class="title">NYC's Newest Instagram Influencer Getting Free Food Is a Robot</span>
+          <span class="desc">How the bot traded automated posts for meals at some of the city's best restaurants.</span>
+        </span>
+      </div>
+    </a>
+    <a href="https://www.thetakeout.com/instagram-influencer-bot-free-food-nyc-data-scientist-1833463378/" target="_blank" rel="noopener">
+      <div class="pressrow">
+        <span class="num">07</span>
+        <span class="outlet">The Takeout <span class="yr">2019</span></span>
+        <span>
+          <span class="title">Data Scientist Created An Instagram Influencer Bot To Score Free Food</span>
+          <span class="desc">A breakdown of how an engineer leveraged an automated following into free meals across NYC.</span>
+        </span>
+      </div>
+    </a>
+    <a href="https://hypebeast.com/2019/3/fake-instagram-influencer-bot-account-free-food" target="_blank" rel="noopener">
+      <div class="pressrow">
+        <span class="num">08</span>
+        <span class="outlet">Hypebeast <span class="yr">2019</span></span>
+        <span>
+          <span class="title">How a Fake Instagram Influencer Got 28k Followers and Free Meals</span>
+          <span class="desc">The coding and scripts behind a page that grew to influencer status on autopilot.</span>
         </span>
       </div>
     </a>
