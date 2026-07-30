@@ -73,16 +73,32 @@
     border-bottom: 1px solid var(--line);
   }
   header.hero .wrap {
-    padding: 64px 24px 56px;
+    padding: 60px 24px;
+    max-width: 1000px;
+  }
+  .hero-split {
+    display: grid;
+    grid-template-columns: minmax(220px, 300px) 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero-id {
     display: flex;
     flex-direction: column;
-    gap: 22px;
     align-items: center;
     text-align: center;
+    gap: 20px;
+  }
+  .hero-summary { min-width: 0; }
+  .hero-summary p:last-child {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.62;
+    color: #26241f;
   }
   .headshot {
-    width: 132px;
-    height: 132px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
     object-position: center 22%;
@@ -278,10 +294,12 @@
 
   /* ---------- responsive ---------- */
   @media (max-width: 720px) {
-    header.hero .wrap { flex-direction: column; align-items: center; gap: 20px; padding: 44px 24px 40px; }
+    .hero-split { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+    .hero-summary { text-align: left; }
+    header.hero .wrap { padding: 44px 24px 40px; }
     h1 { font-size: 36px; }
-    .headshot { width: 104px; height: 104px; }
-    .summary p { font-size: 16px; }
+    .headshot { width: 120px; height: 120px; }
+    .hero-summary p:last-child { font-size: 16px; }
     .skills-grid { grid-template-columns: 1fr; }
     nav .links { gap: 16px; }
     .press-item { flex-wrap: wrap; gap: 14px; }
@@ -307,26 +325,26 @@
 </nav>
 
 <header class="hero">
-  <div class="wrap">
-    <img class="headshot" src="headshot.jpg" alt="Chris Buetti">
-    <div class="hero-text">
-      <h1>Chris Buetti</h1>
-      <p class="tagline">Software Engineer · AI Systems · Technical Founder (Acquired)</p>
-      <div class="contact">
-        <span>New York, NY</span>
-        <a href="mailto:crb4595@gmail.com">crb4595@gmail.com</a>
-        <a href="https://www.linkedin.com/in/chris-buetti/" target="_blank" rel="noopener">linkedin.com/in/chris-buetti</a>
+  <div class="wrap hero-split">
+    <div class="hero-id">
+      <img class="headshot" src="headshot.jpg" alt="Chris Buetti">
+      <div class="hero-text">
+        <h1>Chris Buetti</h1>
+        <p class="tagline">Software Engineer · AI Systems · Technical Founder (Acquired)</p>
+        <div class="contact">
+          <span>New York, NY</span>
+          <a href="mailto:crb4595@gmail.com">crb4595@gmail.com</a>
+          <a href="https://www.linkedin.com/in/chris-buetti/" target="_blank" rel="noopener">linkedin.com/in/chris-buetti</a>
+        </div>
       </div>
+    </div>
+    <div class="hero-summary">
+      <p class="eyebrow">Summary</p>
+      <p>Senior software engineer with a background in machine learning, statistics, and distributed systems. I built production software at the NBA, NBCUniversal, and DISH before founding and engineering an AI driven SaaS platform from prototype through acquisition. My work centers on LLM powered applications, retrieval and ranking systems, AI agents, automation pipelines, and large scale data infrastructure using OpenAI, Claude, Gemini, and modern AI tooling. Looking to join a team as a hands on engineer building AI products at scale.</p>
     </div>
   </div>
 </header>
 
-<section class="summary">
-  <div class="wrap">
-    <p class="eyebrow">Summary</p>
-    <p>Senior software engineer with a background in machine learning, statistics, and distributed systems. I built production software at the NBA, NBCUniversal, and DISH before founding and engineering an AI driven SaaS platform from prototype through acquisition. My work centers on LLM powered applications, retrieval and ranking systems, AI agents, automation pipelines, and large scale data infrastructure using OpenAI, Claude, Gemini, and modern AI tooling. Looking to join a team as a hands on engineer building AI products at scale.</p>
-  </div>
-</section>
 
 <section class="block" id="skills">
   <div class="wrap">
