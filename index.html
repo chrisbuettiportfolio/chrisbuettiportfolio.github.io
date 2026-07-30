@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chris Buetti · Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #2f4858;
+    --paper: #fbfaf7;
+    --bg: #e8e6e0;
+    --ink: #1a1917;
+    --muted: #4a4740;
+    --faint: #6b675e;
+    --line: #d9d5cb;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: #1a2b36; }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- top nav ---------- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(251,250,247,0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 58px;
+  }
+  nav .name {
+    font-family: Newsreader, Georgia, serif;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+  }
+  nav .links {
+    display: flex;
+    gap: 22px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  nav .links a { color: var(--muted); }
+  nav .links a:hover { color: var(--accent); }
+
+  /* ---------- hero / summary ---------- */
+  header.hero {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  header.hero .wrap {
+    padding: 64px 24px 56px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+  .headshot {
+    width: 132px;
+    height: 132px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 22%;
+    flex: 0 0 auto;
+    border: 2px solid var(--line);
+  }
+  .hero-text { flex: 1 1 auto; min-width: 0; }
+  h1 {
+    margin: 0;
+    font-family: Newsreader, Georgia, serif;
+    font-weight: 400;
+    font-size: 46px;
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+  }
+  .tagline {
+    margin: 12px 0 0;
+    font-size: 15px;
+    color: var(--muted);
+  }
+  .contact {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--faint);
+  }
+  .contact a { color: var(--accent); }
+
+  .summary {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  .summary .wrap { padding: 0 24px 60px; }
+  .summary p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #26241f;
+    max-width: 680px;
+  }
+
+  /* ---------- section shell ---------- */
+  section.block { padding: 62px 0; }
+  section.block:nth-of-type(even) { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 6px;
+  }
+  h2 {
+    margin: 0 0 28px;
+    font-family: Newsreader, Georgia, serif;
+    font-weight: 500;
+    font-size: 30px;
+    letter-spacing: -0.01em;
+  }
+
+  /* ---------- skills ---------- */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px 40px;
+  }
+  .skill-group h3 {
+    margin: 0 0 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font-size: 13px;
+    padding: 5px 11px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: #2c2a25;
+  }
+  section.block:nth-of-type(even) .chip { background: #f2f0ea; }
+
+  /* ---------- press / newsletter ---------- */
+  .press-lede {
+    margin: -12px 0 30px;
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 620px;
+  }
+  .press-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+  .press-item {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    padding: 22px 4px;
+    border-bottom: 1px solid var(--line);
+    transition: background 0.15s ease, padding 0.15s ease;
+  }
+  .press-item:hover { background: rgba(47,72,88,0.04); }
+  .press-thumb {
+    width: 148px;
+    height: 92px;
+    flex: 0 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Newsreader, Georgia, serif;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: #fff;
+    text-align: center;
+    line-height: 1.05;
+    padding: 8px;
+  }
+  .t-cnbc { background: linear-gradient(135deg,#005594,#003a66); }
+  .t-buzz { background: linear-gradient(135deg,#ee3322,#c31d0f); }
+  .t-medium { background: linear-gradient(135deg,#1a1a1a,#333); }
+  .t-npr { background: linear-gradient(135deg,#6b3fa0,#472a70); }
+  .t-cheddar { background: linear-gradient(135deg,#e87722,#c25a10); }
+  .press-body { flex: 1 1 auto; min-width: 0; }
+  .press-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+  }
+  .outlet {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .press-date { font-size: 11.5px; color: var(--faint); }
+  .press-title {
+    margin: 0;
+    font-family: Newsreader, Georgia, serif;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--ink);
+  }
+  .press-item:hover .press-title { color: var(--accent); }
+  .press-desc {
+    margin: 5px 0 0;
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+  .press-arrow {
+    flex: 0 0 auto;
+    font-size: 18px;
+    color: var(--faint);
+    opacity: 0;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+  .press-item:hover .press-arrow { opacity: 1; transform: translateX(3px); }
+
+  /* ---------- footer ---------- */
+  footer {
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+    padding: 44px 0;
+    text-align: center;
+  }
+  footer .wrap { display: flex; flex-direction: column; gap: 14px; align-items: center; }
+  footer .links {
+    display: flex;
+    gap: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+  footer .note { font-size: 12px; color: var(--faint); }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 720px) {
+    header.hero .wrap { flex-direction: column; align-items: flex-start; gap: 24px; padding: 44px 24px 40px; }
+    h1 { font-size: 36px; }
+    .headshot { width: 104px; height: 104px; }
+    .summary p { font-size: 16px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    nav .links { gap: 16px; }
+    .press-item { flex-wrap: wrap; gap: 14px; }
+    .press-thumb { width: 100%; height: 140px; font-size: 30px; }
+    .press-arrow { display: none; }
+  }
+  @media (max-width: 440px) {
+    nav .links a[data-hideable] { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="name">Chris Buetti</span>
+    <div class="links">
+      <a href="#skills" data-hideable>Skills</a>
+      <a href="#press">Press</a>
+      <a href="mailto:crb4595@gmail.com">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="headshot" src="headshot.jpg" alt="Chris Buetti">
+    <div class="hero-text">
+      <h1>Chris Buetti</h1>
+      <p class="tagline">Software Engineer · AI Systems · Technical Founder (Acquired)</p>
+      <div class="contact">
+        <span>New York, NY</span>
+        <a href="mailto:crb4595@gmail.com">crb4595@gmail.com</a>
+        <a href="https://www.linkedin.com/in/chris-buetti/" target="_blank" rel="noopener">linkedin.com/in/chris-buetti</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="summary">
+  <div class="wrap">
+    <p class="eyebrow">Summary</p>
+    <p>Senior software engineer with a background in machine learning, statistics, and distributed systems. I built production software at the NBA, NBCUniversal, and DISH before founding and engineering an AI driven SaaS platform from prototype through acquisition. My work centers on LLM powered applications, retrieval and ranking systems, AI agents, automation pipelines, and large scale data infrastructure using OpenAI, Claude, Gemini, and modern AI tooling. Looking to join a team as a hands on engineer building AI products at scale.</p>
+  </div>
+</section>
+
+<section class="block" id="skills">
+  <div class="wrap">
+    <p class="eyebrow">Toolkit</p>
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Backend Engineering</h3>
+        <div class="chips">
+          <span class="chip">Python (Advanced)</span>
+          <span class="chip">FastAPI</span>
+          <span class="chip">Flask</span>
+          <span class="chip">REST APIs</span>
+          <span class="chip">PostgreSQL</span>
+          <span class="chip">MongoDB</span>
+          <span class="chip">Distributed pipelines</span>
+          <span class="chip">Async systems</span>
+          <span class="chip">AWS</span>
+          <span class="chip">Docker</span>
+          <span class="chip">CI/CD</span>
+          <span class="chip">PySpark</span>
+          <span class="chip">Git/GitHub</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>AI Engineering</h3>
+        <div class="chips">
+          <span class="chip">OpenAI</span>
+          <span class="chip">Claude</span>
+          <span class="chip">Gemini</span>
+          <span class="chip">AI agents</span>
+          <span class="chip">MCP</span>
+          <span class="chip">Tool calling</span>
+          <span class="chip">Prompt engineering</span>
+          <span class="chip">RAG</span>
+          <span class="chip">Semantic retrieval</span>
+          <span class="chip">Recommender systems</span>
+          <span class="chip">Ranking systems</span>
+          <span class="chip">Computer vision</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Data & ML</h3>
+        <div class="chips">
+          <span class="chip">Machine learning</span>
+          <span class="chip">Statistics</span>
+          <span class="chip">XGBoost</span>
+          <span class="chip">Data enrichment</span>
+          <span class="chip">Large scale ingestion</span>
+          <span class="chip">Analytics</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Beyond the Code</h3>
+        <div class="chips">
+          <span class="chip">Public speaking</span>
+          <span class="chip">Raising capital</span>
+          <span class="chip">Team leadership</span>
+          <span class="chip">Project management</span>
+          <span class="chip">Social media</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="press">
+  <div class="wrap">
+    <p class="eyebrow">In the News</p>
+    <h2>Media & Press</h2>
+    <p class="press-lede">In 2019 I built a fully autonomous Instagram bot in Python that fed me free dinners across NYC. The write up became the most read post on Medium that year and got picked up everywhere. Selected coverage below.</p>
+
+    <div class="press-list">
+
+      <a class="press-item" href="https://medium.com/hackernoon/how-i-eat-for-free-in-nyc-using-python-automation-artificial-intelligence-and-instagram-a5ed8a9d2b57" target="_blank" rel="noopener">
+        <div class="press-thumb t-medium">Medium</div>
+        <div class="press-body">
+          <div class="press-meta">
+            <span class="outlet">Medium</span>
+            <span class="press-date">2019 · Most read post of the year</span>
+          </div>
+          <h3 class="press-title">How I Eat For Free in NYC Using Python, Automation, Artificial Intelligence, and Instagram</h3>
+          <p class="press-desc">The original essay. Computer vision content selection, engagement automation, and scheduling, grown to tens of thousands of followers with zero manual input.</p>
+        </div>
+        <span class="press-arrow">&rarr;</span>
+      </a>
+
+      <a class="press-item" href="https://www.cnbc.com/2019/03/29/this-nyu-grad-uses-a-bot-to-get-free-meals-and-drinks-around-nyc.html" target="_blank" rel="noopener">
+        <div class="press-thumb t-cnbc">CNBC</div>
+        <div class="press-body">
+          <div class="press-meta">
+            <span class="outlet">CNBC</span>
+            <span class="press-date">2019</span>
+          </div>
+          <h3 class="press-title">This grad built a bot to score free meals and drinks around New York City</h3>
+          <p class="press-desc">CNBC broke down how the automation worked and what it meant for the future of influencer marketing.</p>
+        </div>
+        <span class="press-arrow">&rarr;</span>
+      </a>
+
+      <a class="press-item" href="https://www.buzzfeednews.com/article/franceperkins/instagram-influencer-bot" target="_blank" rel="noopener">
+        <div class="press-thumb t-buzz">BuzzFeed<br>News</div>
+        <div class="press-body">
+          <div class="press-meta">
+            <span class="outlet">BuzzFeed News</span>
+            <span class="press-date">2019 · Front page</span>
+          </div>
+          <h3 class="press-title">A Guy Automated His Instagram To Eat For Free All Over New York</h3>
+          <p class="press-desc">Front page feature on the bot, the ethics debate it kicked off, and how brands reacted.</p>
+        </div>
+        <span class="press-arrow">&rarr;</span>
+      </a>
+
+      <a class="press-item" href="https://www.npr.org/podcasts/510325/note-to-self" target="_blank" rel="noopener">
+        <div class="press-thumb t-npr">NPR</div>
+        <div class="press-body">
+          <div class="press-meta">
+            <span class="outlet">NPR Podcast</span>
+            <span class="press-date">2019 · Interview</span>
+          </div>
+          <h3 class="press-title">The engineer who taught a bot to work the influencer economy</h3>
+          <p class="press-desc">A long form podcast conversation about automation, incentives, and where social platforms are headed.</p>
+        </div>
+        <span class="press-arrow">&rarr;</span>
+      </a>
+
+      <a class="press-item" href="https://www.cheddar.com/" target="_blank" rel="noopener">
+        <div class="press-thumb t-cheddar">Cheddar<br>TV</div>
+        <div class="press-body">
+          <div class="press-meta">
+            <span class="outlet">Cheddar TV</span>
+            <span class="press-date">2019 · Live interview</span>
+          </div>
+          <h3 class="press-title">Live on Cheddar: automating the influencer game</h3>
+          <p class="press-desc">A live television interview walking through the project and the reaction it drew from the marketing world.</p>
+        </div>
+        <span class="press-arrow">&rarr;</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="mailto:crb4595@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/chris-buetti/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <p class="note">Chris Buetti · New York, NY</p>
+  </div>
+</footer>
+
+</body>
+</html>
