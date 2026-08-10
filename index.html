@@ -51,7 +51,7 @@
 
   /* hero */
   .hero { padding: 88px 0; }
-  .hero.container { max-width: 1280px; }
+  .hero.container { max-width: 1180px; }
   .hero .split { align-items: start; grid-template-columns: 0.9fr 1.1fr; gap: 56px; }
   .portrait {
     width: 100%; max-width: 300px; aspect-ratio: 1 / 1; height: auto;
@@ -85,29 +85,44 @@
   .story .lead { font-size: 25px; line-height: 1.44; margin-bottom: 24px; }
   .story .body-copy { margin-bottom: 20px; max-width: 58ch; }
   .story .body-copy:last-child { margin-bottom: 0; }
-  /* four column hero with a divider before the Story block */
-  .hero-4col {
-    position: relative;
+  /* two column hero: identity + intro on the left, Story on the right */
+  .hero-2col {
     display: grid;
-    grid-template-columns: 0.8fr 1fr 0.75fr 1fr;
-    gap: 48px;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
     align-items: start;
   }
-  .hc-intro .lead { font-size: 22px; line-height: 1.42; margin-bottom: 22px; }
-  .hc-intro .body-copy { font-size: 14.5px; line-height: 1.62; max-width: none; margin-bottom: 32px; }
-  .hc-storyhead { position: relative; align-self: stretch; }
-  .hc-storyhead::before {
+  .hc-left .portrait { margin-bottom: 24px; }
+  .hc-left .h1 { margin-bottom: 12px; }
+  .hc-left .hero-role { margin-bottom: 34px; }
+  .hc-left .lead { font-size: 24px; line-height: 1.44; margin-bottom: 24px; }
+  .hc-left .body-copy { font-size: 15.5px; line-height: 1.65; max-width: none; margin-bottom: 36px; }
+  .hc-right {
+    position: relative;
+    padding-left: 80px;
+    align-self: stretch;
+  }
+  .hc-right::before {
     content: "";
     position: absolute;
-    top: 0; bottom: 0;
-    left: -24px;
+    top: 6px; bottom: 6px; left: 0;
     width: 1px;
     background: #d8d2c4;
   }
-  .hc-storyhead .sec-h2 { font-size: 34px; }
-  .hc-storybody .lead { font-size: 19px; line-height: 1.48; margin-bottom: 20px; }
-  .hc-storybody .body-copy { font-size: 14px; line-height: 1.62; max-width: none; margin-bottom: 16px; color: #6a655c; }
-  .hc-storybody .body-copy:last-child { margin-bottom: 0; }
+  .hc-right .eyebrow { margin-bottom: 14px; }
+  .hc-right .sec-h2 { margin-bottom: 24px; }
+  .storymeta {
+    display: flex; flex-wrap: wrap; gap: 10px 32px;
+    padding: 20px 0 24px; margin-bottom: 28px;
+    border-top: 1px solid #e5e0d5; border-bottom: 1px solid #e5e0d5;
+    font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #6f6a60;
+  }
+  .storymeta .row { display: flex; gap: 10px; align-items: baseline; }
+  .storymeta .k { color: #a49c8e; }
+  .storymeta .acquired { color: var(--accent); }
+  .hc-right .lead { font-size: 20px; line-height: 1.46; margin-bottom: 22px; }
+  .hc-right .body-copy { font-size: 15.5px; line-height: 1.65; max-width: none; margin-bottom: 20px; }
+  .hc-right .body-copy:last-child { margin-bottom: 0; }
 
   /* projects */
   .projects { padding: 0 0 96px; }
@@ -172,14 +187,15 @@
   footer.site .fl { display: flex; gap: 28px; }
   footer.site .fl a { color: #6f6a60; }
 
-  @media (max-width: 1080px) {
-    .hero-4col { grid-template-columns: 1fr 1fr; gap: 40px 48px; }
-    .hc-storyhead::before { display: none; }
+  @media (max-width: 900px) {
+    .hero-2col { grid-template-columns: 1fr; gap: 48px; }
+    .hc-right { padding-left: 0; }
+    .hc-right::before { display: none; }
+    .hc-right { border-top: 1px solid #e5e0d5; padding-top: 44px; }
   }
   @media (max-width: 860px) {
     .container, header.site .bar, .skills .inner, .press, footer.site { padding-left: 24px; padding-right: 24px; }
     .split { grid-template-columns: 1fr; gap: 40px; }
-    .hero-4col { grid-template-columns: 1fr; gap: 36px; }
     .skillgrid { grid-template-columns: 1fr 1fr; }
     .tilegrid { grid-template-columns: 1fr 1fr; }
     .hero { padding: 64px 0 60px; }
@@ -212,14 +228,11 @@
 
 <main>
   <section class="container hero">
-    <div class="hero-4col">
-      <div class="hc-id">
+    <div class="hero-2col">
+      <div class="hc-left">
         <img class="portrait" src="portrait.jpg" alt="Chris Buetti">
         <h1 class="h1">Chris Buetti</h1>
         <p class="hero-role">Software engineer · AI systems · technical founder (acquired)</p>
-      </div>
-
-      <div class="hc-intro">
         <p class="lead">Chris Buetti is the Chief Data &amp; AI Officer at partnrUP, which acquired his company Lionize in May 2025. He works at the intersection of AI, data, and marketing technology, building intelligent automation that helps brands grow.</p>
         <p class="body-copy">He founded Lionize and served as its CEO, building it into a leading ad tech company focused on streamlining influencer marketing. Its proprietary platform let brands and agencies run influencer campaigns end to end with more speed and efficiency through automation and data driven decisions. Backed by Cultivation Capital and ScOp Venture Capital, Lionize grew into a trusted partner for marketing teams looking for scalable, measurable, automated solutions.</p>
         <div class="contactline">
@@ -229,17 +242,14 @@
         </div>
       </div>
 
-      <div class="hc-storyhead">
+      <div class="hc-right">
         <div class="eyebrow">Background</div>
         <h2 class="sec-h2">Story</h2>
-        <div class="meta" style="margin-top: 28px;">
+        <div class="storymeta">
           <span class="row"><span class="k">Company</span>Lionize</span>
           <span class="row"><span class="k">Role</span>Founder &amp; lead engineer</span>
           <span class="row"><span class="k">Outcome</span><span class="acquired">Acquired</span></span>
         </div>
-      </div>
-
-      <div class="hc-storybody">
         <p class="lead">The Instagram bot was a side project that got out of hand. The company that came after it was the real work.</p>
         <p class="body-copy">Chris graduated from Wake Forest University in 2017, majoring in Computational Mathematics &amp; Statistics with a focus in machine learning and a minor in Entrepreneurship. He tutored R programming for the math department and wrote his senior thesis, "Calculating the Probability of NBA Field Goals Using Machine Learning Algorithms," under Dr. Staci Hepler. From there he took engineering and data science roles at the NBA, NBC, and Dish Network.</p>
         <p class="body-copy">In 2019 he wrote a data science article on Medium that became the most read post on the platform that year. The work was featured on CNBC, the front page of BuzzFeed News, an NPR podcast, and a live TV interview with Cheddar. He then founded Lionize, wrote the first prototype himself, and stayed the lead engineer as it grew into a real product with paying customers before its acquisition by partnrUP.</p>
