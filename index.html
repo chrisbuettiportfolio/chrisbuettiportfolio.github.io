@@ -51,6 +51,7 @@
 
   /* hero */
   .hero { padding: 88px 0; }
+  .hero.container { max-width: 1240px; }
   .hero .split { align-items: start; grid-template-columns: 0.9fr 1.1fr; gap: 56px; }
   .portrait {
     width: 100%; max-width: 300px; aspect-ratio: 1 / 1; height: auto;
@@ -66,10 +67,19 @@
   .hero .split > div:last-child { padding-top: 0 !important; }
   .lead { font-family: Spectral, Georgia, serif; font-size: 27px; line-height: 1.42; letter-spacing: -0.005em; margin: 0 0 28px; text-wrap: pretty; }
   .body-copy { font-size: 16.5px; line-height: 1.65; color: #555046; margin: 0 0 44px; max-width: 56ch; text-wrap: pretty; }
-  .hero-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; margin-bottom: 8px; }
-  .hero-cols .eyebrow { margin-bottom: 12px; }
-  .hero-cols .body-copy { max-width: none; margin-bottom: 20px; font-size: 15.5px; }
-  .hero-cols .body-copy:last-child { margin-bottom: 0; }
+  /* hero three column layout */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr 1.15fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .hero-intro .lead { font-size: 23px; line-height: 1.42; }
+  .hero-intro .body-copy { font-size: 15px; line-height: 1.62; max-width: none; margin-bottom: 32px; }
+  .hero-story .sec-h2 { font-size: 34px; }
+  .hero-story .story-lead { font-size: 18px; line-height: 1.5; margin: 0 0 20px; color: #1a1815; }
+  .hero-story .body-copy { font-size: 14px; line-height: 1.62; max-width: none; margin-bottom: 16px; color: #6a655c; }
+  .hero-story .body-copy:last-child { margin-bottom: 0; }
   .contactline {
     border-top: 1px solid #e5e0d5; padding-top: 24px;
     display: flex; flex-wrap: wrap; gap: 12px 40px;
@@ -155,7 +165,8 @@
   @media (max-width: 860px) {
     .container, header.site .bar, .skills .inner, .press, footer.site { padding-left: 24px; padding-right: 24px; }
     .split { grid-template-columns: 1fr; gap: 40px; }
-    .hero-cols { grid-template-columns: 1fr; gap: 32px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+    .hero-story { border-top: 1px solid #e5e0d5; padding-top: 40px; }
     .skillgrid { grid-template-columns: 1fr 1fr; }
     .tilegrid { grid-template-columns: 1fr 1fr; }
     .hero { padding: 64px 0 60px; }
@@ -187,35 +198,34 @@
 
 <main>
   <section class="container hero">
-    <div class="split">
-      <div>
+    <div class="hero-grid">
+      <div class="hero-id">
         <img class="portrait" src="portrait.jpg" alt="Chris Buetti">
         <h1 class="h1">Chris Buetti</h1>
         <p class="hero-role">Software engineer · AI systems · technical founder (acquired)</p>
-        <div class="meta" style="margin-top: 28px;">
-          <span class="row"><span class="k">Company</span>Lionize</span>
-          <span class="row"><span class="k">Role</span>Founder &amp; lead engineer</span>
-          <span class="row"><span class="k">Outcome</span><span class="acquired">Acquired</span></span>
-        </div>
       </div>
-      <div style="padding-top: 8px;">
+
+      <div class="hero-intro">
         <p class="lead">Chris Buetti is the Chief Data &amp; AI Officer at partnrUP, which acquired his company Lionize in May 2025. He works at the intersection of AI, data, and marketing technology, building intelligent automation that helps brands grow.</p>
-        <div class="hero-cols">
-          <div>
-            <div class="eyebrow">The company</div>
-            <p class="body-copy">He founded Lionize and served as its CEO, building it into a leading ad tech company focused on streamlining influencer marketing. Its proprietary platform let brands and agencies run influencer campaigns end to end with more speed and efficiency through automation and data driven decisions. Backed by Cultivation Capital and ScOp Venture Capital, Lionize grew into a trusted partner for marketing teams looking for scalable, measurable, automated solutions.</p>
-          </div>
-          <div>
-            <div class="eyebrow">The story</div>
-            <p class="body-copy">Chris graduated from Wake Forest University in 2017, majoring in Computational Mathematics &amp; Statistics with a focus in machine learning and a minor in Entrepreneurship. He tutored R programming for the math department and wrote his senior thesis, "Calculating the Probability of NBA Field Goals Using Machine Learning Algorithms," under Dr. Staci Hepler. From there he took engineering and data science roles at the NBA, NBC, and Dish Network.</p>
-            <p class="body-copy">In 2019 he wrote a data science article on Medium that became the most read post on the platform that year. The work was featured on CNBC, the front page of BuzzFeed News, an NPR podcast, and a live TV interview with Cheddar. He then founded Lionize, wrote the first prototype himself, and stayed the lead engineer as it grew into a real product with paying customers before its acquisition by partnrUP.</p>
-          </div>
-        </div>
+        <p class="body-copy">He founded Lionize and served as its CEO, building it into a leading ad tech company focused on streamlining influencer marketing. Its proprietary platform let brands and agencies run influencer campaigns end to end with more speed and efficiency through automation and data driven decisions. Backed by Cultivation Capital and ScOp Venture Capital, Lionize grew into a trusted partner for marketing teams looking for scalable, measurable, automated solutions.</p>
         <div class="contactline">
           <span>New York, NY</span>
           <a href="mailto:crb4595@gmail.com">crb4595@gmail.com</a>
           <a href="https://linkedin.com/in/chris-buetti" target="_blank" rel="noopener">linkedin.com/in/chris-buetti</a>
         </div>
+      </div>
+
+      <div class="hero-story">
+        <div class="eyebrow">Background</div>
+        <h2 class="sec-h2">Story</h2>
+        <div class="meta" style="margin: 22px 0 26px;">
+          <span class="row"><span class="k">Company</span>Lionize</span>
+          <span class="row"><span class="k">Role</span>Founder &amp; lead engineer</span>
+          <span class="row"><span class="k">Outcome</span><span class="acquired">Acquired</span></span>
+        </div>
+        <p class="lead story-lead">The Instagram bot was a side project that got out of hand. The company that came after it was the real work.</p>
+        <p class="body-copy">Chris graduated from Wake Forest University in 2017, majoring in Computational Mathematics &amp; Statistics with a focus in machine learning and a minor in Entrepreneurship. He tutored R programming for the math department and wrote his senior thesis, "Calculating the Probability of NBA Field Goals Using Machine Learning Algorithms," under Dr. Staci Hepler. From there he took engineering and data science roles at the NBA, NBC, and Dish Network.</p>
+        <p class="body-copy">In 2019 he wrote a data science article on Medium that became the most read post on the platform that year. The work was featured on CNBC, the front page of BuzzFeed News, an NPR podcast, and a live TV interview with Cheddar. He then founded Lionize, wrote the first prototype himself, and stayed the lead engineer as it grew into a real product with paying customers before its acquisition by partnrUP.</p>
       </div>
     </div>
   </section>
