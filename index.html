@@ -84,6 +84,12 @@
   .story .lead { font-size: 25px; line-height: 1.44; margin-bottom: 24px; }
   .story .body-copy { margin-bottom: 20px; max-width: 58ch; }
   .story .body-copy:last-child { margin-bottom: 0; }
+  /* vertical divider between the two Story columns */
+  .story-split .story-body {
+    border-left: 1px solid #e5e0d5;
+    padding-left: 36px;
+    margin-left: -36px;
+  }
 
   /* projects */
   .projects { padding: 0 0 96px; }
@@ -151,6 +157,7 @@
   @media (max-width: 860px) {
     .container, header.site .bar, .skills .inner, .press, footer.site { padding-left: 24px; padding-right: 24px; }
     .split { grid-template-columns: 1fr; gap: 40px; }
+    .story-split .story-body { border-left: none; padding-left: 0; margin-left: 0; }
     .skillgrid { grid-template-columns: 1fr 1fr; }
     .tilegrid { grid-template-columns: 1fr 1fr; }
     .hero { padding: 64px 0 60px; }
@@ -202,7 +209,7 @@
   </section>
 
   <section id="story" class="container story">
-    <div class="split">
+    <div class="split story-split">
       <div>
         <div class="eyebrow">Background</div>
         <h2 class="sec-h2">Story</h2>
@@ -212,7 +219,7 @@
           <span class="row"><span class="k">Outcome</span><span class="acquired">Acquired</span></span>
         </div>
       </div>
-      <div style="padding-top: 4px;">
+      <div class="story-body" style="padding-top: 4px;">
         <p class="lead">The Instagram bot was a side project that got out of hand. The company that came after it was the real work.</p>
         <p class="body-copy">Chris graduated from Wake Forest University in 2017, majoring in Computational Mathematics &amp; Statistics with a focus in machine learning and a minor in Entrepreneurship. He tutored R programming for the math department and wrote his senior thesis, "Calculating the Probability of NBA Field Goals Using Machine Learning Algorithms," under Dr. Staci Hepler. From there he took engineering and data science roles at the NBA, NBC, and Dish Network.</p>
         <p class="body-copy">In 2019 he wrote a data science article on Medium that became the most read post on the platform that year. The work was featured on CNBC, the front page of BuzzFeed News, an NPR podcast, and a live TV interview with Cheddar. He then founded Lionize, wrote the first prototype himself, and stayed the lead engineer as it grew into a real product with paying customers before its acquisition by partnrUP.</p>
